@@ -10,7 +10,7 @@ User can search for recipes by cuisine type, meal type, and dish type.  User can
 * Save recipes to a database such as Firebase
 * Add photos and comments to recipes attempt
 
-In addition, this project will include a: 
+In addition, this project will include: 
 
 * A production README
 
@@ -23,17 +23,17 @@ This app will consist of a single screen with search bar and links to GitHub. Af
 
 ## Architecture and Technologies
 
-* JavaScript for to access records to database 
+* JavaScript to access records to database 
 * Firebase to save user favorites
 * Webpack to bundle JS files
 
 
 ## Implementation Timeline
 
-Day 1: Integrate EDAMAM API and configure webpack
-Day 2: Style website
-Day 3: Add favorites feature and integrate firebase
-Day 4: Add comments and photo feature 
+* Day 1: Integrate EDAMAM API and configure webpack
+* Day 2: Style website
+* Day 3: Add favorites feature and integrate firebase
+* Day 4: Add comments and photo feature 
 
 ## Bonus features
 
