@@ -1,6 +1,8 @@
 import Search from './models/Search'; 
-import * as searchView from './views/searchView'
-import { elements } from './views/base'
+import * as searchView from './views/searchView';
+import { elements } from './views/base';
+import './../styles/app.css';
+import './../styles/appStyles.scss'; 
 
 const state = {}; 
 
@@ -11,6 +13,8 @@ const constrolSearch = async () => {
 
     if (query) {
         state.search = new Search(query); 
+        searchView.clearInput(); 
+        searchView.clearResults(); 
         await state.search.getResults(); 
         // console.log(state.search.result); 
         searchView.renderResults(state.search.result); 
