@@ -20,10 +20,31 @@
 
 .search_btn {
     margin-top: 10px; 
-    background: #6ACC00; 
+    background: linear-gradient(to right, #46A046, #6ACC00); 
     height: 30px; 
     width: 100px; 
     color: #fff;  
     font-size: medium;
     border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.search_btn:before {
+    content: "";
+    height: 160%;
+    width: 40px;
+    background: rgba(255,255,255, .3);
+    position: absolute;
+    top: 0px;
+    transform: translateX(-80px);
+}
+
+.search_btn:hover::before {
+    transform: translateX(230px) rotate(20deg);
+    transition: 0.5s;
+}
+
+.search_btn:hover {
+    cursor: pointer;
 }

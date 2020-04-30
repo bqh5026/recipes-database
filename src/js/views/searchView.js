@@ -37,7 +37,7 @@ const renderRecipe = recipe => {
         <a class="results_link" href="${recipe.recipe.url}" target="_blank">
                <h4>${recipe.recipe.label}</h4>
         </a>
-        <img src="${recipe.recipe.image}" alt="${limitRecipeLabel(recipe.recipe.label)}">
+        <img class="recipe_image" src="${recipe.recipe.image}" alt="${limitRecipeLabel(recipe.recipe.label)}">
         <div>
             <h4>Calories</h4>
             <p>${formatter.format(recipe.recipe.calories)}</p>

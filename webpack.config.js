@@ -27,10 +27,24 @@ module.exports = {
           "resolve-url-loader",
           "sass-loader",
         ],
-        options: {
-          url: true,
-        },
+      // options: {
+        // url: true,
+      // },
       },
+      // {
+      //   test: /\.(s*)css$/,
+      //   use: {
+      //     loader: [
+      //       "style-loader",
+      //       "css-loader",
+      //       "resolve-url-loader",
+      //       "sass-loader",
+      //     ],
+      //     options: {
+      //       url: true
+      //     },
+      //   },
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -46,14 +60,18 @@ module.exports = {
         // test: /\.(png|jpg|jpeg|gif|svg|eot|woff|woff2)$/i,
         test: /\.(png|jpg|jpeg|gif|svg)$/i,
         // use: ["file-loader"]
-        loader: "file-loader",
-        options: {
-          name: '[name].[hash:6].[ext]',
-          // name: "images/[name].[ext]",
-          outputPath: "images",
-          publicPath: "images",
-          emitFile: true,
-          esModule: false,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[hash:6].[ext]",
+            // name: "images/[name].[ext]",
+            outputPath: "images/",
+            publicPath: "images/",
+            // outputPath: "images",
+            // publicPath: "images",
+            emitFile: true,
+            esModule: false,
+          },
         },
       },
       {
@@ -64,7 +82,7 @@ module.exports = {
           loader: "url-loader",
           options: {
             limit: 25000,
-          }
+          },
         },
       },
       // {
