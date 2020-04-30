@@ -4,6 +4,11 @@ import { elements } from './views/base';
 import './../styles/app.css';
 import './../styles/appStyles.scss'; 
 
+import '@fortawesome/fontawesome-free/js/all'; 
+// import footerImg from '../img/splashpage_footer.jpeg'
+
+// console.log(footerImg);
+
 const state = {}; 
 
 const constrolSearch = async () => {
@@ -26,6 +31,15 @@ elements.searchForm.addEventListener('submit', e => {
     constrolSearch();
 });
 
+elements.searchResPages.addEventListener('click', e => {
+    const btn = e.target.closest(".btn-inline");
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10); 
+        searchView.clearResults(); 
+        searchView.renderResults(state.search.result, goToPage); 
+        console.log(goToPage); 
+    }
+}); 
 // const search = new Search('pizza'); 
 // search.getResults(); 
 console.log(search); 

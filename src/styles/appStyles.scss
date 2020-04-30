@@ -1,4 +1,10 @@
-@import 'themeColors';
+@import 'searchView';
+@import 'searchBar';
+@import 'footer';
+
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
+// @import '~@fortawesome/fontawesome-free/css/all.css;
+
 // $theme-font:    verdana, sans-serif;
 
 // body {
@@ -7,4 +13,8 @@
 //   h1, h2 {
 //       color: $themeColor-Dark
 //   }
+// }
+
+// body {
+//     background-image: url('../images/splashpage_footer.jpeg');
 // }
