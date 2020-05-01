@@ -5,9 +5,6 @@ import './../styles/app.css';
 import './../styles/appStyles.scss'; 
 
 import '@fortawesome/fontawesome-free/js/all'; 
-// import footerImg from '../img/splashpage_footer.jpeg'
-
-// console.log(footerImg);
 
 const state = {}; 
 
@@ -42,4 +39,5 @@ elements.searchResPages.addEventListener('click', e => {
 }); 
 // const search = new Search('pizza'); 
 // search.getResults(); 
-console.log(search); 
+// console.log(search); 
+console.log(process.env.EDAMAM_API); 

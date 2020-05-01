@@ -6,6 +6,8 @@ const sourceRootPath = path.join(__dirname, "src");
 const WriteFileWebpackPlugin = require("write-file-webpack-plugin");
 const distRootPath = path.join(__dirname, "dist");
 
+const Dotenv = require("dotenv-webpack");
+
 module.exports = {
   entry: ["babel-polyfill", "./src/js/index.js"],
   output: {
@@ -31,6 +33,7 @@ module.exports = {
       { copyUnmodified: true }
     ),
     new WriteFileWebpackPlugin(),
+    new Dotenv(),
   ],
   module: {
     rules: [
