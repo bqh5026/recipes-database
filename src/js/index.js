@@ -34,10 +34,9 @@ elements.searchResPages.addEventListener('click', e => {
         const goToPage = parseInt(btn.dataset.goto, 10); 
         searchView.clearResults(); 
         searchView.renderResults(state.search.result, goToPage); 
-        console.log(goToPage); 
+        // console.log(goToPage); 
     }
 }); 
 // const search = new Search('pizza'); 
 // search.getResults(); 
 // console.log(search); 
-console.log(process.env.EDAMAM_API); 
