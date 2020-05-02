@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "gh-pages -d dist", 
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
   "author": "Ben Hsieh",
   "license": "ISC",
+  "homepage": "https://bqh5026.github.io/recipes-database", 
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
@@ -35,6 +37,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
-    "dotenv-webpack": "^1.7.0"
+    "dotenv-webpack": "^1.7.0",
+    "gh-pages": "^2.2.0"
   }
 }
