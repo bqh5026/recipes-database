@@ -35,15 +35,19 @@ const renderRecipe = recipe => {
     const markup = `
     <li>
         <a class="results_link" href="${recipe.recipe.url}" target="_blank">
-               <h4>${recipe.recipe.label}</h4>
+               <h2>${recipe.recipe.label}</h2>
         </a>
-        <img class="recipe_image" src="${recipe.recipe.image}" alt="${limitRecipeLabel(recipe.recipe.label)}">
+        <img class="recipe_image" src="${
+          recipe.recipe.image
+        }" alt="${limitRecipeLabel(recipe.recipe.label)}">
         <div>
             <h4>Calories</h4>
-            <p>${formatter.format(recipe.recipe.calories)}</p>
+            <p>${Math.ceil(recipe.recipe.calories)}</p>
             <h4>Health Labels</h4>
             <p>${recipe.recipe.healthLabels}</p>
-            <h4>Ingredients</h4>
+            <a class="results_link" href="${
+              recipe.recipe.url
+            }" target="_blank"><h4>Ingredients</h4></a>
             <p>${recipe.recipe.ingredientLines}</p>
             <h4>Source: </h4>
             <p>${recipe.recipe.source}</p>
@@ -88,4 +92,6 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 
 
 //     <p>${JSON.stringify(recipe.recipe.ingredients)}</p>
+
+//  <p>${formatter.format(recipe.recipe.calories)}</p>;
 
