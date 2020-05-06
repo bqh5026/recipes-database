@@ -49,21 +49,6 @@
     cursor: pointer;
 }
 
-// .loader {
-//     position: absolute;
-//     left: 50%;
-//     top: 50%; 
-//     margin: 5 rem auto;
-//     text-align: center;}
-//     .loader img {
-//         transform-origin: 44% 50%;
-//         animation: rotate 1.5s infinite linear; }
-// @keyframes rotate {
-//     0% {
-//         transform: rotate(0); }
-//     100% {
-//         transform: rotate(360deg);}}
-
 .loader:before {
     content: "";
     box-sizing: border-box;

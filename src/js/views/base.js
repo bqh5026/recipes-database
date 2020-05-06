@@ -13,7 +13,7 @@ export const elementStrings = {
 export const renderLoader = parent => {
     const loader = `
         <div class="${elementStrings.loader}">
-             <img src="/assets/favicon.ico"> 
+          
         </div>
     `;
     parent.insertAdjacentHTML('afterbegin', loader); 
