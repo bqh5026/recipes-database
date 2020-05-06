@@ -22,17 +22,17 @@ module.exports = {
       filename: "index.html",
       template: "./src/index.html",
     }),
-    new CopyWebpackPlugin(
-      [
-        {
-          from: path.join(sourceRootPath, "assets"),
-          to: path.join(distRootPath, "assets"),
-          test: /\.(jpg|jpeg|png|gif|svg)?$/,
-        },
-      ],
-      { copyUnmodified: true }
-    ),
-    new WriteFileWebpackPlugin(),
+    // new CopyWebpackPlugin(
+    //   [
+    //     {
+    //       from: path.join(sourceRootPath, "assets"),
+    //       to: path.join(distRootPath, "assets"),
+    //       test: /\.(jpg|jpeg|png|gif|svg)?$/,
+    //     },
+    //   ],
+    //   { copyUnmodified: true }
+    // ),
+    // new WriteFileWebpackPlugin(),
     new Dotenv(),
   ],
   module: {
@@ -50,6 +50,21 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              // you can specify a publicPath here
+              // by default it uses publicPath in webpackOptions.output
+              name: "[name].[ext]",
+              outputPath: "assets/",
+              publicPath: "assets/",
+            },
+          },
+        ],
       },
     ],
   },
