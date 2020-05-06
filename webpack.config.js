@@ -1,10 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const sourceRootPath = path.join(__dirname, "src");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const sourceRootPath = path.join(__dirname, "src");
 
-const WriteFileWebpackPlugin = require("write-file-webpack-plugin");
-const distRootPath = path.join(__dirname, "dist");
+// const WriteFileWebpackPlugin = require("write-file-webpack-plugin");
+// const distRootPath = path.join(__dirname, "dist");
 
 const Dotenv = require("dotenv-webpack");
 
