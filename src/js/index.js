@@ -1,6 +1,6 @@
 import Search from './models/Search'; 
 import * as searchView from './views/searchView';
-import { elements } from './views/base';
+import { elements, renderLoader, clearLoader } from './views/base';
 import './../styles/app.css';
 import './../styles/appStyles.scss'; 
 
@@ -17,8 +17,12 @@ const constrolSearch = async () => {
         state.search = new Search(query); 
         searchView.clearInput(); 
         searchView.clearResults(); 
+        renderLoader(elements.searchRes); 
+
         await state.search.getResults(); 
         // console.log(state.search.result); 
+
+        clearLoader();
         searchView.renderResults(state.search.result); 
     }
 }

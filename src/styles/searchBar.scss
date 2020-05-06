@@ -48,3 +48,41 @@
 .search_btn:hover {
     cursor: pointer;
 }
+
+// .loader {
+//     position: absolute;
+//     left: 50%;
+//     top: 50%; 
+//     margin: 5 rem auto;
+//     text-align: center;}
+//     .loader img {
+//         transform-origin: 44% 50%;
+//         animation: rotate 1.5s infinite linear; }
+// @keyframes rotate {
+//     0% {
+//         transform: rotate(0); }
+//     100% {
+//         transform: rotate(360deg);}}
+
+.loader:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 60px;
+    width: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    border-radius: 50%;
+    border-top: 2px solid coral;
+    border-right: 20x solid transparent;
+    animation: spinner 0.7s infinite linear; 
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }  
+}
+
