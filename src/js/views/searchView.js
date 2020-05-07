@@ -34,7 +34,7 @@ const renderRecipe = recipe => {
 
     const markup = `
     <li>
-        <a class="results_link" href="${recipe.recipe.url}" target="_blank">
+        <a class="results_link" href="${recipe.recipe.url}">
                <h2>${recipe.recipe.label}</h2>
         </a>
         <img class="recipe_image" src="${
@@ -89,7 +89,7 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 };
 
 
-
+    //   <a class="results_link" href="${recipe.recipe.url}" target="_blank"></a>
 
 //     <p>${JSON.stringify(recipe.recipe.ingredients)}</p>
 
