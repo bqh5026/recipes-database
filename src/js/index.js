@@ -6,6 +6,8 @@ import './../styles/appStyles.scss';
 
 import '@fortawesome/fontawesome-free/js/all'; 
 
+// import Recipe from './models/Recipe';
+
 const state = {}; 
 
 const constrolSearch = async () => {

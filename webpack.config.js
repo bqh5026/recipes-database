@@ -1,10 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const CopyWebpackPlugin = require("copy-webpack-plugin");
-// const sourceRootPath = path.join(__dirname, "src");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const sourceRootPath = path.join(__dirname, "src");
 
 // const WriteFileWebpackPlugin = require("write-file-webpack-plugin");
-// const distRootPath = path.join(__dirname, "dist");
+const distRootPath = path.join(__dirname, "dist");
 
 const Dotenv = require("dotenv-webpack");
 
@@ -22,16 +22,16 @@ module.exports = {
       filename: "index.html",
       template: "./src/index.html",
     }),
-    // new CopyWebpackPlugin(
-    //   [
-    //     {
-    //       from: path.join(sourceRootPath, "assets"),
-    //       to: path.join(distRootPath, "assets"),
-    //       test: /\.(jpg|jpeg|png|gif|svg)?$/,
-    //     },
-    //   ],
-    //   { copyUnmodified: true }
-    // ),
+    new CopyWebpackPlugin(
+      [
+        {
+          from: path.join(sourceRootPath, "assets"),
+          to: path.join(distRootPath, "assets"),
+          test: /\.(jpg|jpeg|png|gif|svg)?$/,
+        },
+      ],
+      { copyUnmodified: true }
+    ),
     // new WriteFileWebpackPlugin(),
     new Dotenv(),
   ],

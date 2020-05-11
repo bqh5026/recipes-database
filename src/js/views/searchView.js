@@ -28,13 +28,13 @@ const limitRecipeLabel = (label, limit = 10) => {
 }
 
 const renderRecipe = recipe => {
-    const formatter = new Intl.NumberFormat({
-        style: 'decimal'
-    })
+    // const formatter = new Intl.NumberFormat({
+    //     style: 'decimal'
+    // })
 
     const markup = `
     <li>
-        <a class="results_link" href="${recipe.recipe.url}">
+        <a class="results_link" href="${recipe.recipe.url}" target="_blank">
                <h2>${recipe.recipe.label}</h2>
         </a>
         <img class="recipe_image" src="${
