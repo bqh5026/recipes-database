@@ -1,7 +1,7 @@
 # Recipes Database Proposal
 
 
-User can search for recipes by cuisine type, meal type, and dish type.  User can further customize by maximum number of ingredients, calories, and preparation time. In addition, one can exclude certain ingredient(s) and/or focus on a particular diet. 
+User can search for recipes by keyword in the categories of meals, desserts, or drinks.  
 
 ## Functionality & MVP
 
