@@ -5,69 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" data-auto-a11y="true"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Recipes Database</title>
 </head>
 <body>
-    <div class="wrapper">
-        <nav class="nav-bar">
-                <form class='search'>
-                    <input type="text" class="search_field" placeholder="Search recipes">
-                    <button class="search_btn">
-                        <span>Search</span>
-                    </button>
-                </form>
-        </nav>
-    </div>
+    <div class="container">
 
-    <div class="results">
-        <ul class="results_list">
-            <br />
-            <br />
-            <br />
-            <!-- <h1 class="intructions">
-                Welcome to Recipes Database where you find recipes for meals, desserts, and cocktails! To start, enter a search word or phrase in the searchbox!
-            </h1>  -->
-                <img src='./assets/cocktails.jpg' height="600px" width="100%" alt="footer image">               
-        </ul>
-
-        <div class="results_pages">
-
-
+        <div class="wrapper">
+            <nav class="nav-bar">
+                    <form class='search'>
+                        <input type="text" class="search_field" placeholder="Search recipes">
+                        <button class="search_btn">
+                            <span>Search</span>
+                        </button>
+                    </form>
+            </nav>
         </div>
-    </div>
-
-    <!-- <div>
-        <h2>My Shopping List</h2>
-        <ul class="shopping_list"></ul>
-    </div> -->
-    <div class="favorites">
-        
-    </div>
-
-
-    <footer class="footer">
-        <ul>
-            <li><a href="https://benhsieh-dev.github.io/" target="_blank"><i class="far fa-address-card"></i></a></li>
-            <li><a href="https://github.com/benhsieh-dev" target="_blank"><i class="fab fa-github"></i></a></li>
-            <!-- <li><a href="https://www.facebook.com/beenchi.hsieh" target="_blank"><i class="fab fa-facebook-f"></i></a></li> -->
-            <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li> -->
-            <li><a href="https://www.linkedin.com/in/ben-hsieh-05522542/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="https://angel.co/u/ben-hsieh-6" target="_blank"><i class="fab fa-angellist"></i></a></li>
-        </ul>
-    </footer>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <!-- <script src="/__/firebase/7.14.3/firebase-app.js"></script> -->
     
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-         https://firebase.google.com/docs/web/setup#available-libraries -->
-    <!-- <script src="/__/firebase/7.14.3/firebase-analytics.js"></script> -->
+        <div class="results">
+            <div class="results_list">    
+                <img src='./assets/cocktails.jpg' height="600px" width="100%" alt="content-image">
+            </div>
     
-    <!-- Initialize Firebase -->
-    <!-- <script src="/__/firebase/init.js"></script> -->
+            <div class="results_pages">
+            </div>
+        </div>
+    
+        <div class="favorites">
+            <h2>Favorite Recipes</h2>
+            
+        </div>
+    
+    
+        <footer class="footer">
+            <ul>
+                <li><a href="https://benhsieh-dev.github.io/" target="_blank"><i class="far fa-address-card"></i></a></li>
+                <li><a href="https://github.com/benhsieh-dev" target="_blank"><i class="fab fa-github"></i></a></li>
+                <!-- <li><a href="https://www.facebook.com/beenchi.hsieh" target="_blank"><i class="fab fa-facebook-f"></i></a></li> -->
+                <!-- <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li> -->
+                <li><a href="https://www.linkedin.com/in/ben-hsieh-05522542/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://angel.co/u/ben-hsieh-6" target="_blank"><i class="fab fa-angellist"></i></a></li>
+            </ul>
+        </footer>
+    
+        <script src="../dist/js/bundle.js"></script>
 
-    <script src="../dist/js/bundle.js"></script>
-
+    </div>
 </body>
 </html>

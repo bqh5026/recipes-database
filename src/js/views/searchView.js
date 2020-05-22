@@ -42,14 +42,14 @@ const addItem = (recipeURL) => {
 const getData = () => {
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/recipes"
+        "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/recipes.json"
       )
-      //   .get("https://recipes-database-fb21c.firebaseio.com/")
-      .then((response) => {
-        console.log(response);
-        // const dataBase = response;
+      .then((res) => {
+        console.log(res.data);
+        const dataBase = res.data;
         // elements.favorites.insertAdjacentHTML("beforeend", response);
-        // elements.favorites.innerHTML = response;
+        // elements.favorites.innerHTML = dataBase;
+        elements.favorites.innerHTML = JSON.stringify(dataBase);
       })
       .catch((error) => {
         console.log(error);
@@ -59,34 +59,45 @@ const getData = () => {
 const renderRecipe = (recipe, idx) => {
   
     const markup = `
-    <li>
+    <div class="card">
         <a class="results_link" href="${recipe.recipe.url}" target="_blank">
                <h2>${recipe.recipe.label}</h2>
         </a>
         <img class="recipe_image" src="${
           recipe.recipe.image
         }" alt="${limitRecipeLabel(recipe.recipe.label)}">
+            <div class="card_content">
+                <h4>Calories</h4>
+                <p>${Math.ceil(recipe.recipe.calories)}</p>
+                <h4>Health Labels</h4>
+                <p>${recipe.recipe.healthLabels}</p>
+                <a class="results_link" href="${
+                  recipe.recipe.url
+                }" target="_blank"><h4>Ingredients</h4></a>
+                <p>${recipe.recipe.ingredientLines}</p>
+                <h4>Source: </h4>
+                <p>${recipe.recipe.source}</p>
+            </div>
+            <div class="card_info">
+                <div>
+                    <button data-recipe-id=${idx}><span class="material-icons">favorite_border</span></button>
+                    <button data-firebase=${idx}>Get Favorites</button>
+                </div>
+                <div>
+                    <a class="results_link" href="${
+                      recipe.recipe.url
+                    }" target="_blank">View Recipe Article</a>
+                </div>
+            </div>
         <div>
-            <h4>Calories</h4>
-            <p>${Math.ceil(recipe.recipe.calories)}</p>
-            <h4>Health Labels</h4>
-            <p>${recipe.recipe.healthLabels}</p>
-            <a class="results_link" href="${
-              recipe.recipe.url
-            }" target="_blank"><h4>Ingredients</h4></a>
-            <p>${recipe.recipe.ingredientLines}</p>
-            <h4>Source: </h4>
-            <p>${recipe.recipe.source}</p>
-              <button data-recipe-id=${idx}>Add Favorite</button>
-              <button onclick="${getData()}">Get Favorites</button>
         </div>
     
-    </li>
+    </div>
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
-    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)))
-    .addEventListener("click", addItem(JSON.stringify(recipe)))
+    .addEventListener("click", addItem(JSON.stringify(recipe)));
+    document.querySelector("click", getData());
 };
 
 
