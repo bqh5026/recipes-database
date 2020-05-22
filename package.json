@@ -11,7 +11,7 @@
   },
   "author": "Ben Hsieh",
   "license": "ISC",
-  "homepage": "https://bqh5026.github.io/recipes-database",
+  "homepage": "https://benhsieh-dev.github.io/recipes-database",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
