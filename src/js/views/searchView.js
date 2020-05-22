@@ -41,9 +41,6 @@ const addItem = (recipeURL) => {
 
 const getData = () => {
     axios
-    //   .get(
-    //     "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/"
-    //   )
       .get(
         "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/recipes"
       )

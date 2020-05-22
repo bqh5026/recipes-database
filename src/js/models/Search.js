@@ -10,8 +10,6 @@ export default class Search {
         try {
             const res = await axios(`https://api.edamam.com/search?q=${this.query}&app_id=${appId}&app_key=${process.env.EDAMAM_API}&from=0&to=100`);
             this.result = res.data.hits; 
-            // console.log(res); 
-            // console.log(this.result); 
         } catch(error) {
             alert(error); 
         }

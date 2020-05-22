@@ -21,7 +21,6 @@ const constrolSearch = async () => {
         renderLoader(elements.searchRes); 
 
         await state.search.getResults(); 
-        console.log(state.search.result); 
 
         clearLoader();
         searchView.renderResults(state.search.result); 
@@ -39,13 +38,9 @@ elements.searchResPages.addEventListener('click', e => {
         const goToPage = parseInt(btn.dataset.goto, 10); 
         searchView.clearResults(); 
         searchView.renderResults(state.search.result, goToPage); 
-        // console.log(goToPage); 
     }
 }); 
 
 
 // window.l = new List();
-
-// const search = new Search('pizza'); 
 // search.getResults(); 
-// console.log(search); 
