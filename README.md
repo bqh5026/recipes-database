@@ -16,7 +16,7 @@ In addition, this project will include:
 
 ## Wireframes
 
-This app will consist of a single screen with search bar and links to GitHub. After the search, the user can see the ingredients dropped down into the left pane and a photo of the sample meal on the right pane. User can then favorite the recipe on the top right corner that would save the recipe onto a Firebase database. In addition, user can upload photos of recipe attempt and comments at the bottom of screen. 
+This app will consist of a single screen with search bar and links to GitHub. After the search, the user can see a list of recipes with photos dropped displayed as search result. User can then favorite the recipe on the top right corner that would save the recipe onto a Firebase database. In addition, user can upload photos of recipe attempt and comments at the bottom of screen. 
 
 ![Getting Started](./Recipes%20Database%20Wireframe.png)
 

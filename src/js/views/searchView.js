@@ -1,5 +1,7 @@
 import { elements } from './base'; 
 
+import axios from '../axios-orders';
+
 export const getInput = () => elements.searchInput.value; 
 
 export const clearInput = () => {
@@ -27,11 +29,38 @@ const limitRecipeLabel = (label, limit = 10) => {
     return label; 
 }
 
-const renderRecipe = recipe => {
-    // const formatter = new Intl.NumberFormat({
-    //     style: 'decimal'
-    // })
+const addItem = (recipeURL) => {
+    return event => {
+        event.preventDefault(); 
+        axios
+            .post("/recipes.json", recipeURL)
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error))
+    }
+}
 
+const getData = () => {
+    axios
+    //   .get(
+    //     "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/"
+    //   )
+      .get(
+        "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/recipes"
+      )
+      //   .get("https://recipes-database-fb21c.firebaseio.com/")
+      .then((response) => {
+        console.log(response);
+        // const dataBase = response;
+        // elements.favorites.insertAdjacentHTML("beforeend", response);
+        // elements.favorites.innerHTML = response;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+}
+
+const renderRecipe = (recipe, idx) => {
+  
     const markup = `
     <li>
         <a class="results_link" href="${recipe.recipe.url}" target="_blank">
@@ -51,11 +80,16 @@ const renderRecipe = recipe => {
             <p>${recipe.recipe.ingredientLines}</p>
             <h4>Source: </h4>
             <p>${recipe.recipe.source}</p>
+              <button data-recipe-id=${idx}>Add Favorite</button>
+              <button onclick="${getData()}">Get Favorites</button>
         </div>
     
     </li>
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
+    document.querySelector(`[data-recipe-id="${idx}"]`)
+    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)))
+    .addEventListener("click", addItem(JSON.stringify(recipe)))
 };
 
 
@@ -89,9 +123,9 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 };
 
 
-    //   <a class="results_link" href="${recipe.recipe.url}" target="_blank"></a>
 
-//     <p>${JSON.stringify(recipe.recipe.ingredients)}</p>
 
-//  <p>${formatter.format(recipe.recipe.calories)}</p>;
+
+
+
 

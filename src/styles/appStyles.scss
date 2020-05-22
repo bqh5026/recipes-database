@@ -30,3 +30,8 @@ body {
 footer {
     margin-top: auto;
 }
+
+footer ul li a svg {
+    margin-top: calc(100% / 2 - 0.5em);
+}
+

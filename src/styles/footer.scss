@@ -12,10 +12,6 @@
 .footer ul {
     position: absolute;
     margin-left: 250px;
-    // top: 50%;
-    // left: 50%;
-    // padding: 0;
-    // margin: 0;
     transform: translate(-50%, -50%);
     display: flex;
 }
@@ -51,11 +47,12 @@
     transform: translate(0, -10px);
 }
 
-.footer ul li:nth-child(1) a:hover {
-    background-color: #3b5999;
-}
+// .footer ul li:nth-child(1) a:hover {
+//     background-color: #3b5999;
+// }
+
 .footer ul li:nth-child(2) a:hover {
-    background-color: #55aace;
+    background-color: #016197;
 }
 // .footer ul li:nth-child(3) a:hover {
 //     background-color: #e4405f;

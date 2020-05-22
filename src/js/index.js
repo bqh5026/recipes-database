@@ -7,13 +7,12 @@ import './../styles/appStyles.scss';
 import '@fortawesome/fontawesome-free/js/all'; 
 
 // import Recipe from './models/Recipe';
+// import List from './models/List';
 
 const state = {}; 
 
 const constrolSearch = async () => {
-    // const query = 'pizza'; 
     const query = searchView.getInput();
-    // console.log(query);
 
     if (query) {
         state.search = new Search(query); 
@@ -22,7 +21,7 @@ const constrolSearch = async () => {
         renderLoader(elements.searchRes); 
 
         await state.search.getResults(); 
-        // console.log(state.search.result); 
+        console.log(state.search.result); 
 
         clearLoader();
         searchView.renderResults(state.search.result); 
@@ -43,6 +42,10 @@ elements.searchResPages.addEventListener('click', e => {
         // console.log(goToPage); 
     }
 }); 
+
+
+// window.l = new List();
+
 // const search = new Search('pizza'); 
 // search.getResults(); 
 // console.log(search); 
