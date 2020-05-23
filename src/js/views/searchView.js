@@ -47,7 +47,7 @@ const getData = () => {
       )
       .then((res) => {
         console.log(res.data);
-        const dataBase = res.data
+        const dataBase = res.data.recipe.url; 
         elements.favorites.innerHTML = JSON.stringify(dataBase);
       })
       .catch((error) => {
