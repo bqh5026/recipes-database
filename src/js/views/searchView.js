@@ -33,7 +33,8 @@ const addItem = (recipeURL) => {
     return event => {
         event.preventDefault(); 
         axios
-            .post("/recipes.json", recipeURL)
+            // .post("/recipes.json", recipeURL)
+            .put("/recipes.json", recipeURL)
             .then((response) => console.log(response))
             .catch((error) => console.log(error))
     }
@@ -42,13 +43,11 @@ const addItem = (recipeURL) => {
 const getData = () => {
     axios
       .get(
-        "https://cors-anywhere.herokuapp.com/https://recipes-database-fb21c.firebaseio.com/recipes.json"
+        "/recipes.json"
       )
       .then((res) => {
         console.log(res.data);
-        const dataBase = res.data;
-        // elements.favorites.insertAdjacentHTML("beforeend", response);
-        // elements.favorites.innerHTML = dataBase;
+        const dataBase = res.data
         elements.favorites.innerHTML = JSON.stringify(dataBase);
       })
       .catch((error) => {
@@ -97,6 +96,7 @@ const renderRecipe = (recipe, idx) => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
     .addEventListener("click", addItem(JSON.stringify(recipe)));
+    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)));
     document.querySelector("click", getData());
 };
 
