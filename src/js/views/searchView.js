@@ -40,33 +40,6 @@ const addItem = (recipeURL) => {
     }
 }
 
-const getData = () => {
-    axios
-      .get(
-        "/recipes.json"
-      )
-      .then((res) => {
-        // console.log(res.data);
-        // let keys = Object.keys(res.data);
-        // console.log(keys); 
-        // for(let i=0; i <keys.length; i++) {
-        //     let k = keys[i];
-        //     // let url = res.data[k].recipe.url;
-        //     let image = res.data[k].recipe.image;
-        //     // console.log(JSON.stringify(url)); 
-        //     // console.log(JSON.stringify(image)); 
-        //     console.log(image); 
-        // }
-        // const dataBase = res.data;
-        const dataBase = res.data;
-        elements.favorites.innerHTML = JSON.stringify(dataBase);
-        // elements.favorites.innerHTML = dataBase;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-}
-
 const renderRecipe = (recipe, idx) => {
   
     const markup = `
@@ -92,7 +65,7 @@ const renderRecipe = (recipe, idx) => {
             <div class="card_info">
                 <div>
                     <button data-recipe-id=${idx}><span class="material-icons">favorite_border</span></button>
-                    <button data-firebase=${idx}>Get Favorites</button>
+                    <button data-firebase-id="true">Get Favorites</button>
                 </div>
                 <div>
                     <a class="results_link" href="${
@@ -111,7 +84,6 @@ const renderRecipe = (recipe, idx) => {
     // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)));
     // .addEventListener("click", addItem(JSON.stringify(recipe.recipe)));
     .addEventListener("click", addItem(recipe.recipe));
-    document.querySelector("click", getData());
 };
 
 
