@@ -46,10 +46,21 @@ const getData = () => {
         "/recipes.json"
       )
       .then((res) => {
-        console.log(res.data);
-        // const dataBase = res.data.recipe.url; 
-        const dataBase = res.data
+        // console.log(res.data);
+        // let keys = Object.keys(res.data);
+        // console.log(keys); 
+        // for(let i=0; i <keys.length; i++) {
+        //     let k = keys[i];
+        //     // let url = res.data[k].recipe.url;
+        //     let image = res.data[k].recipe.image;
+        //     // console.log(JSON.stringify(url)); 
+        //     // console.log(JSON.stringify(image)); 
+        //     console.log(image); 
+        // }
+        // const dataBase = res.data;
+        const dataBase = res.data;
         elements.favorites.innerHTML = JSON.stringify(dataBase);
+        // elements.favorites.innerHTML = dataBase;
       })
       .catch((error) => {
         console.log(error);
