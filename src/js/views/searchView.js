@@ -33,8 +33,8 @@ const addItem = (recipeURL) => {
     return event => {
         event.preventDefault(); 
         axios
-            // .post("/recipes.json", recipeURL)
-            .put("/recipes.json", recipeURL)
+            .post("/recipes.json", recipeURL)
+            // .put("/recipes.json", recipeURL)
             .then((response) => console.log(response))
             .catch((error) => console.log(error))
     }
@@ -47,7 +47,8 @@ const getData = () => {
       )
       .then((res) => {
         console.log(res.data);
-        const dataBase = res.data.recipe.url; 
+        // const dataBase = res.data.recipe.url; 
+        const dataBase = res.data
         elements.favorites.innerHTML = JSON.stringify(dataBase);
       })
       .catch((error) => {
@@ -95,8 +96,10 @@ const renderRecipe = (recipe, idx) => {
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
-    .addEventListener("click", addItem(JSON.stringify(recipe)));
+    // .addEventListener("click", addItem(JSON.stringify(recipe)));
     // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)));
+    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe)));
+    .addEventListener("click", addItem(recipe.recipe));
     document.querySelector("click", getData());
 };
 

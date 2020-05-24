@@ -21,7 +21,7 @@ const constrolSearch = async () => {
         renderLoader(elements.searchRes); 
 
         await state.search.getResults(); 
-
+   
         clearLoader();
         searchView.renderResults(state.search.result); 
     }
