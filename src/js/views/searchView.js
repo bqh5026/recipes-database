@@ -65,7 +65,6 @@ const renderRecipe = (recipe, idx) => {
             <div class="card_info">
                 <div>
                     <button data-recipe-id=${idx}><span class="material-icons">favorite_border</span></button>
-                    <button data-firebase-id="true">Get Favorites</button>
                 </div>
                 <div>
                     <a class="results_link" href="${
