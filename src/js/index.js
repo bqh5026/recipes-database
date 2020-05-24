@@ -49,14 +49,17 @@ const getData = () => {
       // console.log(keys);
       for (let i = 0; i < keys.length; i++) {
         let k = keys[i];
-        let url = res.data[k].url;
         let image = res.data[k].image;
         let source = res.data[k].source;
         // console.log(JSON.stringify(url));
         //  console.log(JSON.stringify(image));
         // console.log(url, image, source);
-        //     elements.favorites.insertAdjacentHTML("beforeend", source);
-        elements.favorites.innerHTML = source;
+        const favoriteRecipes = `
+            <div>
+                <a href="${res.data[k].url}" target="_blank"><img src="${res.data[k].image}" alt="${res.data[k].label}"></a>
+            </div>
+        `;
+        elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
       }
       // const dataBase = res.data;
       // elements.favorites.innerHTML = JSON.stringify(dataBase);
