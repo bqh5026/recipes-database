@@ -44,26 +44,34 @@ const getData = () => {
   axios
     .get("/recipes.json")
     .then((res) => {
-      // console.log(res.data);
+    //   console.log(res.data);
       let keys = Object.keys(res.data);
       // console.log(keys);
       for (let i = 0; i < keys.length; i++) {
         let k = keys[i];
-        let image = res.data[k].image;
-        let source = res.data[k].source;
-        // console.log(JSON.stringify(url));
-        //  console.log(JSON.stringify(image));
-        // console.log(url, image, source);
         const favoriteRecipes = `
-            <div>
-                <a href="${res.data[k].url}" target="_blank"><img src="${res.data[k].image}" alt="${res.data[k].label}"></a>
+            <div class="recipes_cards">
+                <div class="recipe_card">   
+                    <h2>${res.data[k].label}</h2>
+                    <img class="recipe_card_image" src="${
+                      res.data[k].image
+                    }" alt="${res.data[k].label}">
+                    <div class="recipe_card_content">
+                    <p>${JSON.stringify(res.data[k].ingredients)}</p>
+                    </div>
+                    <div class="recipe_card_info">
+                        <div>
+                          <button>Delete</button>
+                        </div>
+                        <div>
+                          <a href="${res.data[k].url}" class="recipe_card_link" target="_blank">View Article</a> 
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
         elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
       }
-      // const dataBase = res.data;
-      // elements.favorites.innerHTML = JSON.stringify(dataBase);
-      // elements.favorites.innerHTML = dataBase;
     })
     .catch((error) => {
       console.log(error);
