@@ -44,9 +44,7 @@ const getData = () => {
   axios
     .get("/recipes.json")
     .then((res) => {
-    //   console.log(res.data);
       let keys = Object.keys(res.data);
-      // console.log(keys);
       for (let i = 0; i < keys.length; i++) {
         let k = keys[i];
         const favoriteRecipes = `
@@ -57,14 +55,20 @@ const getData = () => {
                       res.data[k].image
                     }" alt="${res.data[k].label}">
                     <div class="recipe_card_content">
-                    <p>${JSON.stringify(res.data[k].ingredients)}</p>
+                    <p>
+                      <ul>
+                          ${res.data[k].ingredients.map( ingredient => `<li>${ingredient.text}</li><li>${ingredient.weight} g</li>`).join("")}
+                      </ul>
+                    </p>
                     </div>
                     <div class="recipe_card_info">
                         <div>
                           <button>Delete</button>
                         </div>
                         <div>
-                          <a href="${res.data[k].url}" class="recipe_card_link" target="_blank">View Article</a> 
+                          <a href="${
+                            res.data[k].url
+                          }" class="recipe_card_link" target="_blank">View Article</a> 
                         </div>
                     </div>
                 </div>
