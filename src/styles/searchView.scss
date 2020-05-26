@@ -11,25 +11,28 @@
     display: grid;
     // grid-template-columns: repeat(auto-fill, min-max(225px, 1fr));
     height: 90vh;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 0fr 1.5fr 0fr;
     grid-template-areas: 
-        "wrapper wrapper wrapper wrapper wrapper wrapper"
-        "results results results results results favorites"
-        "footer footer footer footer footer footer"
+        "wrapper wrapper wrapper wrapper wrapper"
+        "results results results results favorites"
+        "footer footer footer footer footer";
+    background-image: url('../assets/cocktails.jpg');
+    background-repeat: repeat;
 }
 
 // Card Layout
 
 .results {
     margin-top: 0; 
-    max-width: 60%;
+    max-width: 100%;
     font-family: sans-serif;
     grid-area: results; 
 }
 
 .card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    background: #fff;
 }
 
 .recipe_image {
