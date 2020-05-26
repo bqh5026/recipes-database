@@ -15,10 +15,8 @@
     grid-template-rows: 0fr 1.5fr 0fr;
     grid-template-areas: 
         "wrapper wrapper wrapper wrapper wrapper"
-        "results results results results favorites"
+        "favorites results results results results"
         "footer footer footer footer footer";
-    background-image: url('../assets/cocktails.jpg');
-    background-repeat: repeat;
 }
 
 // Card Layout
@@ -84,7 +82,7 @@
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas:
          "wrapper wrapper"
-         "results favorites"
+         "favorites results"
          "footer footer"
         ;
     }
@@ -96,8 +94,8 @@
         grid-template-rows: 0fr 1fr 0fr 0fr;
         grid-template-areas: 
         "wrapper"
-        "results"
         "favorites"
+        "results"
         "footer";
     }
 }
