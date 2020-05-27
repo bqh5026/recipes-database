@@ -34,8 +34,7 @@ const addItem = (recipeURL) => {
         event.preventDefault(); 
         axios
             .post("/recipes.json", recipeURL)
-            // .put("/recipes.json", recipeURL)
-            .then((response) => console.log(response))
+            // .then((response) => console.log(response))
             .catch((error) => console.log(error))
     }
 }
