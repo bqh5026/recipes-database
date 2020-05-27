@@ -34,10 +34,70 @@ const addItem = (recipeURL) => {
         event.preventDefault(); 
         axios
             .post("/recipes.json", recipeURL)
-            // .then((response) => console.log(response))
+            .then((response) => console.log(response))
             .catch((error) => console.log(error))
     }
 }
+
+const deleteItem = (favoriteRecipe) => {
+  return (event) => {
+    event.preventDefault();
+    axios
+      .delete("/recipes.json", favoriteRecipe)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
+};
+
+const getData = () => {
+  axios
+    .get("/recipes.json")
+    .then((res) => {
+      let keys = Object.keys(res.data);
+      for (let i = 0; i < keys.length; i++) {
+        let k = keys[i];
+        const favoriteRecipes = `
+            <div class="recipes_cards">
+                <div class="recipe_card">   
+                    <span>${res.data[k].label}</span>
+                    <img class="recipe_card_image" src="${
+                      res.data[k].image
+                    }" alt="${res.data[k].label}">
+                    <div class="recipe_card_content">
+                    <p>
+                      <ul>
+                          ${res.data[k].ingredients
+                            .map(
+                              (ingredient) =>
+                                `<li>${ingredient.text}</li><li>${ingredient.weight} g</li>`
+                            )
+                            .join("")}
+                      </ul>
+                    </p>
+                    </div>
+                    <div class="recipe_card_info">
+                        <div>
+                          <button data-fav-recipe=${k}>Delete</button>
+                        </div>
+                        <div>
+                          <a href="${
+                            res.data[k].url
+                          }" class="recipe_card_link" target="_blank">View Article</a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
+        document
+          .querySelector(`[data-fav-recipe="${k}"]`)
+          .addEventListener("click", deleteItem(res.data));
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const renderRecipe = (recipe, idx) => {
   
@@ -78,10 +138,11 @@ const renderRecipe = (recipe, idx) => {
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
-    // .addEventListener("click", addItem(JSON.stringify(recipe)));
-    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe.url)));
-    // .addEventListener("click", addItem(JSON.stringify(recipe.recipe)));
     .addEventListener("click", addItem(recipe.recipe));
+    // document.querySelector(`[data-recipe-id="${idx}"]`)
+    // .addEventListener("click", getData());
+    // document.querySelector(`[data-recipe-id="${idx}"]`)
+    // .addEventListener("click", window.location.reload());
 };
 
 

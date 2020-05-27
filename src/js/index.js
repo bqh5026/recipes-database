@@ -40,6 +40,21 @@ elements.searchResPages.addEventListener('click', e => {
     }
 }); 
 
+elements.help.addEventListener('click', e=> {
+  e.preventDefault();
+  alert('Enter search phrase into the search field. It can be anything recipe related such as "Manhattan", "Apple Pie", or "Avocado Soup."');
+});
+
+const deleteItem = (favoriteRecipe) => {
+  return event => {
+    event.preventDefault();
+    axios
+      .delete('/recipes.json', favoriteRecipe)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }
+}
+
 const getData = () => {
   axios
     .get("/recipes.json")
@@ -63,7 +78,7 @@ const getData = () => {
                     </div>
                     <div class="recipe_card_info">
                         <div>
-                          <button>Delete</button>
+                          <button class="delete_fav" data-fav-recipe=${k}>Delete</button>
                         </div>
                         <div>
                           <a href="${
@@ -75,6 +90,8 @@ const getData = () => {
             </div>
         `;
         elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
+        document.querySelector(`[data-fav-recipe="${k}"]`)
+        .addEventListener("click", deleteItem(res.data));
       }
     })
     .catch((error) => {

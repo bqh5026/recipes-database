@@ -3,7 +3,6 @@
 .favorites {
     grid-area: favorites; 
     border: 1px solid gray; 
-    // width: 90%;
     background: #fff;
     display: flex;
     flex-wrap: wrap;
@@ -61,4 +60,8 @@
 
 .recipe_card_link:hover {
     text-decoration: underline;
+}
+
+.delete_fav {
+    cursor: pointer;
 }

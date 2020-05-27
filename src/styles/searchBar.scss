@@ -92,6 +92,36 @@
 //     cursor: pointer;
 // }
 
+.help_button {
+    margin-top: 10px; 
+    background: linear-gradient(to right, #46A046, #6ACC00); 
+    height: 30px; 
+    color: #fff;  
+    font-size: medium;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.help_button:before {
+    content: "";
+    height: 160%;
+    width: 40px;
+    background: rgba(255,255,255, .3);
+    position: absolute;
+    top: 0px;
+    transform: translateX(-80px);
+}
+
+.help_button:hover::before {
+    transform: translateX(230px) rotate(20deg);
+    transition: 0.5s;
+}
+
+.help_button:hover {
+    cursor: pointer;
+}
+
 .loader:before {
     content: "";
     box-sizing: border-box;
