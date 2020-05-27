@@ -12,23 +12,17 @@
     // grid-template-columns: repeat(auto-fill, min-max(225px, 1fr));
     height: 90vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0fr 0fr 1.5fr 1.5fr 0fr;
+    grid-template-rows: 0fr 0fr 1.5fr 0fr 1.5fr 0fr;
     grid-template-areas: 
         "wrapper wrapper wrapper wrapper wrapper"
         "favorites_header favorites_header favorites_header favorites_header favorites_header"
         "favorites favorites favorites favorites favorites"
+        "search_results_header search_results_header search_results_header search_results_header search_results_header"
         "results results results results results"
         "footer footer footer footer footer";
 }
 
-// Card Layout
-
-.results {
-    margin-top: 0; 
-    max-width: 100%;
-    font-family: sans-serif;
-    grid-area: results; 
-}
+// favorite recipes header 
 
 .favorites-header {
     color: darkgreen; 
@@ -36,9 +30,43 @@
     grid-area: favorites_header;
 }
 
+.favorites-header > span {
+    background: #fff;
+}
+
+
+// Search results header
+
+.search_results_header {
+    text-align: center;
+    color: #bd9b16;
+    grid-area: search_results_header;
+}
+
+.search_results_header > span {
+    background: #fff;
+}
+
+// Card Layout
+
+.results {
+    margin-top: 0; 
+    // max-width: 100%;
+    font-family: sans-serif;
+    grid-area: results; 
+    display: flex;
+    flex-direction: column;
+}
+
+.results_list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     background: #fff;
+    width: 350px; 
 }
 
 .recipe_image {
@@ -92,6 +120,7 @@
          "wrapper wrapper"
          "favorites_header favorites_header"
          "favorites favorites"
+         "search_results_header search_results_header"
          "results results"
          "footer footer"
         ;
@@ -101,11 +130,12 @@
 @media only screen and (max-width: 550px) {
     .container {
         grid-template-columns: 1fr;
-        grid-template-rows: 0fr 0fr 1fr 0fr 0fr;
+        grid-template-rows: 0fr 0fr 1fr 0fr 0fr 0fr;
         grid-template-areas: 
         "wrapper"
         "favorites_header"
         "favorites"
+        "search_results_header"
         "results"
         "footer";
     }
