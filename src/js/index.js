@@ -50,7 +50,7 @@ const getData = () => {
         const favoriteRecipes = `
             <div class="recipes_cards">
                 <div class="recipe_card">   
-                    <h2>${res.data[k].label}</h2>
+                    <span>${res.data[k].label}</span>
                     <img class="recipe_card_image" src="${
                       res.data[k].image
                     }" alt="${res.data[k].label}">

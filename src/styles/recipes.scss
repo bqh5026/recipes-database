@@ -3,9 +3,10 @@
 .favorites {
     grid-area: favorites; 
     border: 1px solid gray; 
-    // width: 350px;
-    width: 100%;
+    // width: 90%;
     background: #fff;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .recipes_cards {
@@ -15,6 +16,7 @@
 
 .recipe_card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
 .recipe_card_image {
