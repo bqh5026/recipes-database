@@ -139,8 +139,8 @@ const renderRecipe = (recipe, idx) => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
     .addEventListener("click", addItem(recipe.recipe));
-    // document.querySelector(`[data-recipe-id="${idx}"]`)
-    // .addEventListener("click", getData());
+    document.querySelector(`[data-recipe-id="${idx}"]`)
+    .addEventListener("click", getData());
     // document.querySelector(`[data-recipe-id="${idx}"]`)
     // .addEventListener("click", window.location.reload());
 };
