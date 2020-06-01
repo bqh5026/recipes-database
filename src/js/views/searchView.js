@@ -34,7 +34,7 @@ const addItem = (recipeURL) => {
         event.preventDefault(); 
         axios
             .post("/recipes.json", recipeURL)
-            .then((response) => console.log(response))
+            .then((response) => window.alert("Recipe added to favorites. Refresh page to see changes"))
             .catch((error) => console.log(error))
     }
 }
@@ -59,13 +59,14 @@ const getData = () => {
         const favoriteRecipes = `
             <div class="recipes_cards">
                 <div class="recipe_card">   
-                    <span>${res.data[k].label}</span>
+                    <h2>${res.data[k].label}</h2>
                     <img class="recipe_card_image" src="${
                       res.data[k].image
                     }" alt="${res.data[k].label}">
                     <div class="recipe_card_content">
                     <p>
-                      <ul>
+                      <h4>Ingredients</h4>
+                      <ul>  
                           ${res.data[k].ingredients
                             .map(
                               (ingredient) =>
@@ -139,8 +140,8 @@ const renderRecipe = (recipe, idx) => {
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
     .addEventListener("click", addItem(recipe.recipe));
-    document.querySelector(`[data-recipe-id="${idx}"]`)
-    .addEventListener("click", getData());
+    // document.querySelector(`[data-recipe-id="${idx}"]`)
+    // .addEventListener("click", getData());
     // document.querySelector(`[data-recipe-id="${idx}"]`)
     // .addEventListener("click", window.location.reload());
 };

@@ -6,16 +6,20 @@
     background: #fff;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .recipes_cards {
     margin: 0 auto;
     font-family: sans-serif;
+    padding: 20px; 
 }
 
 .recipe_card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     width: 300px;
+    height: 500px; 
+    overflow: scroll;
 }
 
 .recipe_card_image {

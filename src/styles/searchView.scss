@@ -15,10 +15,10 @@
     grid-template-rows: 0fr 0fr 1.5fr 0fr 1.5fr 0fr;
     grid-template-areas: 
         "wrapper wrapper wrapper wrapper wrapper"
-        "favorites_header favorites_header favorites_header favorites_header favorites_header"
-        "favorites favorites favorites favorites favorites"
         "search_results_header search_results_header search_results_header search_results_header search_results_header"
         "results results results results results"
+        "favorites_header favorites_header favorites_header favorites_header favorites_header"
+        "favorites favorites favorites favorites favorites"
         "footer footer footer footer footer";
 }
 
@@ -61,12 +61,16 @@
 .results_list {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .card {
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     background: #fff;
     width: 350px; 
+    height: 600px;
+    overflow: scroll;
+    margin: 5px; 
 }
 
 .recipe_image {
@@ -118,10 +122,10 @@
         grid-template-rows: 1fr 1 fr 1fr 1fr 1fr;
         grid-template-areas:
          "wrapper wrapper"
-         "favorites_header favorites_header"
-         "favorites favorites"
          "search_results_header search_results_header"
          "results results"
+         "favorites_header favorites_header"
+         "favorites favorites"
          "footer footer"
         ;
     }
@@ -133,10 +137,10 @@
         grid-template-rows: 0fr 0fr 1fr 0fr 0fr 0fr;
         grid-template-areas: 
         "wrapper"
-        "favorites_header"
-        "favorites"
         "search_results_header"
         "results"
+        "favorites_header"
+        "favorites"
         "footer";
     }
 }
