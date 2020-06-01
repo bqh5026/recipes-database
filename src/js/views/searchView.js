@@ -59,11 +59,11 @@ const getData = () => {
         const favoriteRecipes = `
             <div class="recipes_cards">
                 <div class="recipe_card">   
-                    <h2>${res.data[k].label}</h2>
                     <img class="recipe_card_image" src="${
                       res.data[k].image
                     }" alt="${res.data[k].label}">
                     <div class="recipe_card_content">
+                    <h2>${res.data[k].label}</h2>
                     <p>
                       <h4>Ingredients</h4>
                       <ul>  
@@ -104,13 +104,15 @@ const renderRecipe = (recipe, idx) => {
   
     const markup = `
     <div class="card">
-        <a class="results_link" href="${recipe.recipe.url}" target="_blank">
-               <h2>${recipe.recipe.label}</h2>
-        </a>
         <img class="recipe_image" src="${
           recipe.recipe.image
         }" alt="${limitRecipeLabel(recipe.recipe.label)}">
             <div class="card_content">
+               <a class="results_link" href="${
+                 recipe.recipe.url
+               }" target="_blank">
+               <h4>${recipe.recipe.label}</h4>
+        </a>
                 <h4>Calories</h4>
                 <p>${Math.ceil(recipe.recipe.calories)}</p>
                 <h4>Health Labels</h4>
