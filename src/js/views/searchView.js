@@ -40,13 +40,13 @@ const addItem = (recipeURL) => {
 }
 
 const deleteItem = (favoriteRecipe) => {
-  return (event) => {
-    event.preventDefault();
-    axios
-      .delete("/recipes.json", favoriteRecipe)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-  };
+  // return (event) => {
+  //   event.preventDefault();
+  //   axios
+  //     .delete("/recipes.json", favoriteRecipe)
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // };
 };
 
 const getData = () => {

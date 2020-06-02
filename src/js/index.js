@@ -45,16 +45,6 @@ elements.help.addEventListener('click', e=> {
   alert('Enter search phrase into the search field. It can be anything recipe related such as "Manhattan", "Apple Pie", or "Avocado Soup."');
 });
 
-const deleteItem = (favoriteRecipe) => {
-  return event => {
-    event.preventDefault();
-    axios
-      .delete('/recipes.json', favoriteRecipe)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
-}
-
 const getData = () => {
   axios
     .get("/recipes.json")
@@ -91,7 +81,18 @@ const getData = () => {
         `;
         elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
         document.querySelector(`[data-fav-recipe="${k}"]`)
-        .addEventListener("click", deleteItem(res.data));
+        .addEventListener("click", function(event) {
+          event.preventDefault();
+          const oneRecord = firebase.database().ref('recipes/' + k)
+          oneRecord.remove()
+            .then(function() {
+              console.log("Remove succeeded.")
+              location.href="/"
+            })
+            .catch(function(error) {
+              console.log("Remove failed", error)
+            })
+        });
       }
     })
     .catch((error) => {
