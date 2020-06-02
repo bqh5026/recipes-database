@@ -11,6 +11,7 @@ import axios from './axios-orders';
 const state = {}; 
 
 const constrolSearch = async () => {
+  elements.favorites.innerHTML = '';
     const query = searchView.getInput();
 
     if (query) {
@@ -23,6 +24,7 @@ const constrolSearch = async () => {
    
         clearLoader();
         searchView.renderResults(state.search.result); 
+        getData();
     }
 }
 
@@ -46,6 +48,7 @@ elements.help.addEventListener('click', e=> {
 });
 
 const getData = () => {
+  elements.favorites.innerHTML = '';
   axios
     .get("/recipes.json")
     .then((res) => {

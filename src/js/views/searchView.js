@@ -50,6 +50,7 @@ const deleteItem = (favoriteRecipe) => {
 };
 
 const getData = () => {
+  elements.favorites.innerHTML = '';
   axios
     .get("/recipes.json")
     .then((res) => {
@@ -141,9 +142,25 @@ const renderRecipe = (recipe, idx) => {
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
-    .addEventListener("click", addItem(recipe.recipe));
-    // document.querySelector(`[data-recipe-id="${idx}"]`)
-    // .addEventListener("click", getData());
+        // .addEventListener("click", addItem(recipe.recipe)); 
+        .addEventListener("click", function(event) {
+          event.preventDefault();
+            axios
+                .post("/recipes.json", recipe.recipe)
+                .then((response) => {
+                  console.log(response)
+                  getData();
+                })
+                .catch((error) => {
+                  console.log(error)
+                })
+        });
+        document.querySelector(`[data-recipe-id="${idx}"]`)
+        // .addEventListener("click", getData());
+        .addEventListener("click", function(event) {
+          event.preventDefault();
+          getData();
+        });
     // document.querySelector(`[data-recipe-id="${idx}"]`)
     // .addEventListener("click", window.location.reload());
 };
