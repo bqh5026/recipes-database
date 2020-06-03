@@ -93,7 +93,21 @@ const getData = () => {
         elements.favorites.insertAdjacentHTML("beforeend", favoriteRecipes);
         document
           .querySelector(`[data-fav-recipe="${k}"]`)
-          .addEventListener("click", deleteItem(res.data));
+          .addEventListener("click", function(event) {
+            event.preventDefault();
+            const oneRecord = firebase.database().ref('recipes/' + k)
+            oneRecord.remove()
+              .then(function() {
+                console.log("Remove succeeded.");
+                elements.favorites.innerHTML = "";
+                setTimeout(function(){
+                  getData();
+                }, 500);
+              })
+              .catch(function(error) {
+                console.log("Remove failed", error)
+              })
+          });
       }
     })
     .catch((error) => {

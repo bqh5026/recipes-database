@@ -90,7 +90,7 @@ const getData = () => {
           oneRecord.remove()
             .then(function() {
               console.log("Remove succeeded.")
-              location.href="/"
+              getData();
             })
             .catch(function(error) {
               console.log("Remove failed", error)
