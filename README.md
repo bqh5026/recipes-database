@@ -4,39 +4,51 @@ User can search for recipes by keyword in the categories of meals, desserts, or 
 
 [Live Site](https://benhsieh-dev.github.io/recipes-database/)
 
-## Functionality & MVP
+## Technologies Used
 
-* Search bar to input search parameters
-* See results in an aesthetic pleasing format
-* Save recipes to a database such as Firebase
-* Add photos and comments to recipes attempt
+* JavaScript
+* Edmamam API
+* HTML5
+* CSS3
+* Firebase Database
 
-In addition, this project will include: 
+Some of chanllenges that I ran into were as follows: 
+ 1. Trying to refresh favorite recipes page on each new favorite added. 
+ 2. Deleting an individual recipe from favorites without wiping out the entire database. 
 
-* A production README
+I over came these issues by including firebase configurations on the index.html page. 
 
-## Wireframes
+```javascript
+  const firebaseConfig = {
+            apiKey: "AIzaSyDm5HreoqHLeMO9-4c0HAWMEjjYkScCqfM",
+            authDomain: "recipes-database-fb21c.firebaseapp.com",
+            databaseURL: "https://recipes-database-fb21c.firebaseio.com/",
+            projectId: "recipes-database-fb21c",
+            storageBucket: "recipes-database-fb21c.appspot.com"
+        };
+        firebase.initializeApp(firebaseConfig);
+```
+The api key allowed me to work with firebase using the documentation, which led to the following code that solved the deletion issue. 
 
-This app will consist of a single screen with search bar and links to GitHub. After the search, the user can see a list of recipes with photos dropped displayed as search result. User can then favorite the recipe on the top right corner that would save the recipe onto a Firebase database. In addition, user can upload photos of recipe attempt and comments at the bottom of screen. 
+```javascript
+document
+          .querySelector(`[data-fav-recipe="${k}"]`)
+          .addEventListener("click", function(event) {
+            event.preventDefault();
+            const oneRecord = firebase.database().ref('recipes/' + k)
+            oneRecord.remove()
+              .then(function() {
+                console.log("Remove succeeded.");
+                elements.favorites.innerHTML = "";
+                setTimeout(function(){
+                  getData();
+                }, 500);
+              })
+              .catch(function(error) {
+                console.log("Remove failed", error)
+              })
+          });
+```
+    
 
-![Getting Started](./Recipes%20Database%20Wireframe.png)
 
-
-## Architecture and Technologies
-
-* JavaScript to access records to database 
-* Firebase to save user favorites
-* Webpack to bundle JS files
-
-
-## Implementation Timeline
-
-* Day 1: Integrate EDAMAM API and configure webpack
-* Day 2: Style website
-* Day 3: Add favorites feature and integrate firebase
-* Day 4: Add comments and photo feature 
-
-## Bonus features
-
-* User authentication and individual access to firebase database
-* User can upload new recipes to database
