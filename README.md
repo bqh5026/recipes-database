@@ -7,9 +7,14 @@ User can search for recipes by keyword in the categories of meals, desserts, or 
 ## Technologies Used
 
 * JavaScript
+  - MVC framework
+  - Axios to communicate with Firebase database
 * Edmamam API
 * HTML5
 * CSS3
+  - CSS grid 
+  - flexbox
+  - animation
 * Firebase Database
 
 Some of chanllenges that I ran into were as follows: 
@@ -50,5 +55,6 @@ document
           });
 ```
     
+## Future considerations
 
-
+* Ability to post photos and add comments
