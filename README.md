@@ -1,7 +1,8 @@
-# Recipes Database Proposal
-
+# Recipes Database
 
 User can search for recipes by keyword in the categories of meals, desserts, or drinks.  
+
+[Live Site](https://benhsieh-dev.github.io/recipes-database/)
 
 ## Functionality & MVP
 
