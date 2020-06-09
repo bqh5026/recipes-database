@@ -29,26 +29,6 @@ const limitRecipeLabel = (label, limit = 10) => {
     return label; 
 }
 
-const addItem = (recipeURL) => {
-    return event => {
-        event.preventDefault(); 
-        axios
-            .post("/recipes.json", recipeURL)
-            .then((response) => window.alert("Recipe added to favorites. Refresh page to see changes"))
-            .catch((error) => console.log(error))
-    }
-}
-
-const deleteItem = (favoriteRecipe) => {
-  // return (event) => {
-  //   event.preventDefault();
-  //   axios
-  //     .delete("/recipes.json", favoriteRecipe)
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
-  // };
-};
-
 const getData = () => {
   elements.favorites.innerHTML = '';
   axios
@@ -98,7 +78,7 @@ const getData = () => {
             const oneRecord = firebase.database().ref('recipes/' + k)
             oneRecord.remove()
               .then(function() {
-                console.log("Remove succeeded.");
+                // console.log("Remove succeeded.");
                 elements.favorites.innerHTML = "";
                 setTimeout(function(){
                   getData();
@@ -162,7 +142,7 @@ const renderRecipe = (recipe, idx) => {
             axios
                 .post("/recipes.json", recipe.recipe)
                 .then((response) => {
-                  console.log(response)
+                  // console.log(response)
                   getData();
                 })
                 .catch((error) => {
