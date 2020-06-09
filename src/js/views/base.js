@@ -5,7 +5,9 @@ export const elements = {
     searchRes: document.querySelector('.results'),
     searchResPages: document.querySelector('.results_pages'),
     favorites: document.querySelector('.favorites'),
-    help: document.querySelector('.help_button')
+    help: document.querySelector('.help_button'),
+    modal: document.querySelector('.modal'),
+    closeModal: document.querySelector('.closeModal')
 }
 
 export const elementStrings = {

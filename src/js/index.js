@@ -42,10 +42,13 @@ elements.searchResPages.addEventListener('click', e => {
     }
 }); 
 
-elements.help.addEventListener('click', e=> {
-  e.preventDefault();
-  alert('Enter search phrase into the search field. It can be anything recipe related such as "Manhattan", "Apple Pie", or "Avocado Soup."');
-});
+const toggleModal = () => {
+  elements.modal.classList.toggle('modal--hidden'); 
+}
+
+elements.help.addEventListener('click', toggleModal);
+elements.closeModal.addEventListener('click', toggleModal); 
+
 
 const getData = () => {
   elements.favorites.innerHTML = '';
