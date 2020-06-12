@@ -121,7 +121,9 @@ const renderRecipe = (recipe, idx) => {
             </div>
             <div class="card_info">
                 <div>
-                    <button data-recipe-id=${idx}><span class="material-icons">favorite_border</span></button>
+                    <a href='#' class='like' data-recipe-id=${idx}>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                    </a>
                 </div>
                 <div>
                     <a class="results_link" href="${
@@ -136,13 +138,12 @@ const renderRecipe = (recipe, idx) => {
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
     document.querySelector(`[data-recipe-id="${idx}"]`)
-        // .addEventListener("click", addItem(recipe.recipe)); 
         .addEventListener("click", function(event) {
           event.preventDefault();
             axios
                 .post("/recipes.json", recipe.recipe)
                 .then((response) => {
-                  // console.log(response)
+                  console.log(response)
                   getData();
                 })
                 .catch((error) => {
@@ -150,13 +151,10 @@ const renderRecipe = (recipe, idx) => {
                 })
         });
         document.querySelector(`[data-recipe-id="${idx}"]`)
-        // .addEventListener("click", getData());
         .addEventListener("click", function(event) {
           event.preventDefault();
           getData();
         });
-    // document.querySelector(`[data-recipe-id="${idx}"]`)
-    // .addEventListener("click", window.location.reload());
 };
 
 
@@ -191,7 +189,9 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 
 
 
-
+  // <div>
+  //     <button data-recipe-id=${idx}><span class="material-icons">favorite_border</span></button>
+  // </div>
 
 
 
