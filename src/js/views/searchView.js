@@ -146,6 +146,7 @@ const renderRecipe = (recipe, idx) => {
                   console.log(response)
                   getData();
                 })
+                .then(favIcon())
                 .catch((error) => {
                   console.log(error)
                 })
@@ -180,9 +181,15 @@ const renderButtons = (page, numResults, resPerPage) => {
     elements.searchResPages.insertAdjacentHTML('afterbegin', button); 
 }
 
-$(document).ready(function(){
+// $(document).ready(function(){
+//     $(".like").click(function(){
+//       $(this).toggleClass("heart");
+//     });
+// });
 
-});
+const favIcon = () => {
+      $('.like').toggleClass("heart");
+};
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const start = (page - 1) * resPerPage;
