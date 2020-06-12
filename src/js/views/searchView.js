@@ -121,7 +121,7 @@ const renderRecipe = (recipe, idx) => {
             </div>
             <div class="card_info">
                 <div>
-                    <a href='#' class='like' data-recipe-id=${idx}>
+                    <a href='#' class='like fav-heart' data-recipe-id=${idx}>
                       <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -179,6 +179,10 @@ const renderButtons = (page, numResults, resPerPage) => {
     }
     elements.searchResPages.insertAdjacentHTML('afterbegin', button); 
 }
+
+$(document).ready(function(){
+
+});
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const start = (page - 1) * resPerPage;
