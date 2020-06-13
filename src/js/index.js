@@ -68,13 +68,21 @@ const getData = () => {
                     <div class="recipe_card_content">
                     <p>
                       <ul>
-                          ${res.data[k].ingredients.map( ingredient => `<li>${ingredient.text}</li><li>${ingredient.weight} g</li>`).join("")}
+                          ${res.data[k].ingredients
+                            .map(
+                              (ingredient) =>
+                                `<li>${ingredient.text}</li><li>${ingredient.weight} g</li>`
+                            )
+                            .join("")}
                       </ul>
                     </p>
                     </div>
                     <div class="recipe_card_info">
                         <div>
-                          <button class="delete_fav" data-fav-recipe=${k}>Delete</button>
+
+                          <a href='#' class='like unfav-heart' data-fav-recipe=${k}>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                          </a>
                         </div>
                         <div>
                           <a href="${
@@ -109,3 +117,5 @@ const getData = () => {
 document.addEventListener("DOMContentLoaded", function() {
     getData();
 });
+
+// <button class="delete_fav" data-fav-recipe=${k}>Delete</button>

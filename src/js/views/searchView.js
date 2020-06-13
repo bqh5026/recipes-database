@@ -59,7 +59,9 @@ const getData = () => {
                     </div>
                     <div class="recipe_card_info">
                         <div>
-                          <button data-fav-recipe=${k}>Delete</button>
+                          <a href='#' class='like unfav-heart' data-fav-recipe=${k}>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                          </a>
                         </div>
                         <div>
                           <a href="${
