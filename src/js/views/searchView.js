@@ -145,7 +145,7 @@ const renderRecipe = (recipe, idx) => {
             axios
                 .post("/recipes.json", recipe.recipe)
                 .then((response) => {
-                  console.log(response)
+                  // console.log(response)
                   getData();
                 })
                 .then(favIcon())
