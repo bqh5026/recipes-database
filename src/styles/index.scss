@@ -27,7 +27,48 @@
 
 .modal_contents {
     position: absolute;
-    // text-align: center;
     top: 40%;
-    height: 10%;
+    height: 15%;
+}
+
+.documentation {
+    font-size: 30px; 
+    -webkit-animation: color-change;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation: color-change;
+    -moz-animation-duration: 2s;
+    -moz-animation-iteration-count: infinite;
+
+    -ms-animation: color-change;
+    -ms-animation-duration: 2s;
+    -ms-animation-iteration-count: infinite;
+
+    -o-animation: color-change;
+    -o-animation-duration: 2s;
+    -o-animation-iteration-count: infinite;
+}
+@-webkit-keyframes color-change {
+    0% { background: -webkit-linear-gradient(yellow, red);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+    50% { background: -webkit-linear-gradient(red, yellow);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+    100% { background: -webkit-linear-gradient(orange, blue);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+}
+
+@-moz-keyframes color-change {
+    0% { background: -moz-linear-gradient(yellow, red);-moz-background-clip: text;-moz-text-fill-color: transparent;}
+    50% { background: -moz-linear-gradient(red, yellow);-moz-background-clip: text;-moz-text-fill-color: transparent;}
+    100% { background: -moz-linear-gradient(orange, blue);-moz-background-clip: text;-moz-text-fill-color: transparent;}
+}
+
+@-ms-keyframes color-change {
+    0% { background: -ms-linear-gradient(yellow, red);-ms-background-clip: text;-ms-text-fill-color: transparent;}
+    50% { background: -ms-linear-gradient(red, yellow);-ms-background-clip: text;-ms-text-fill-color: transparent;}
+    100% { background: -ms-linear-gradient(orange, blue);-ms-background-clip: text;-ms-text-fill-color: transparent;}
+}
+
+@-o-keyframes color-change {
+    0% { background: -o-linear-gradient(yellow, red);-o-background-clip: text;-o-text-fill-color: transparent;}
+    50% { background: -o-linear-gradient(red, yellow);-o-background-clip: text;-o-text-fill-color: transparent;}
+    100% { background: -o-linear-gradient(orange, blue);-o-background-clip: text;-o-text-fill-color: transparent;}
 }
