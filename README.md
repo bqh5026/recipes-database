@@ -44,6 +44,7 @@ document
     
 ![ezgif com-optimize](https://user-images.githubusercontent.com/43966507/84585421-b5eff100-addd-11ea-816c-f2bf1af63fe9.gif)
 
+![ezgif com-optimize (1)](https://user-images.githubusercontent.com/43966507/84696759-f30dcd80-af1a-11ea-9ffc-ce040d787838.gif)
 
 ## Future considerations
 
