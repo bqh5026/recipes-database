@@ -143,15 +143,16 @@ const renderRecipe = (recipe, idx) => {
         .addEventListener("click", function(event) {
           event.preventDefault();
             axios
-                .post("/recipes.json", recipe.recipe)
-                .then((response) => {
-                  // console.log(response)
-                  getData();
-                })
-                .then(favIcon())
-                .catch((error) => {
-                  console.log(error)
-                })
+              .post("/recipes.json", recipe.recipe)
+              .then((response) => {
+                // console.log(response)
+                getData();
+              })
+              // .then(favIcon())
+              .then($(`[data-recipe-id="${idx}"]`).toggleClass("heart"))
+              .catch((error) => {
+                console.log(error);
+              });
         });
         document.querySelector(`[data-recipe-id="${idx}"]`)
         .addEventListener("click", function(event) {
@@ -189,9 +190,9 @@ const renderButtons = (page, numResults, resPerPage) => {
 //     });
 // });
 
-const favIcon = () => {
-      $('.like').toggleClass("heart");
-};
+// const favIcon = () => {
+//       $('.like').toggleClass("heart");
+// };
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
     const start = (page - 1) * resPerPage;

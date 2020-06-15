@@ -49,3 +49,4 @@ document
 ## Future considerations
 
 * Ability to post photos and add comments
+* Ability to add ratings
