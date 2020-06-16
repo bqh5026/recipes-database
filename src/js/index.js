@@ -24,7 +24,7 @@ const constrolSearch = async () => {
    
         clearLoader();
         searchView.renderResults(state.search.result); 
-        getData();
+        landingData();
     }
 }
 
@@ -50,7 +50,7 @@ elements.help.addEventListener('click', toggleModal);
 elements.closeModal.addEventListener('click', toggleModal); 
 
 
-const getData = () => {
+const landingData = () => {
   elements.favorites.innerHTML = '';
   axios
     .get("/recipes.json")
@@ -61,12 +61,13 @@ const getData = () => {
         const favoriteRecipes = `
             <div class="recipes_cards">
                 <div class="recipe_card">   
-                    <span>${res.data[k].label}</span>
                     <img class="recipe_card_image" src="${
                       res.data[k].image
                     }" alt="${res.data[k].label}">
                     <div class="recipe_card_content">
+                    <h2 class="recipe-label">${res.data[k].label}</h2>
                     <p>
+                      <h4>Ingredients</h4>
                       <ul>
                           ${res.data[k].ingredients
                             .map(
@@ -79,7 +80,6 @@ const getData = () => {
                     </div>
                     <div class="recipe_card_info">
                         <div>
-
                           <a href='#' class='like unfav-heart' data-fav-recipe=${k}>
                             <i class="fa fa-heart" aria-hidden="true"></i>
                           </a>
@@ -100,8 +100,8 @@ const getData = () => {
           const oneRecord = firebase.database().ref('recipes/' + k)
           oneRecord.remove()
             .then(function() {
-              console.log("Remove succeeded.")
-              getData();
+              // console.log("Remove succeeded.")
+              landingData();
             })
             .catch(function(error) {
               console.log("Remove failed", error)
@@ -115,7 +115,6 @@ const getData = () => {
 };
 
 document.addEventListener("DOMContentLoaded", function() {
-    getData();
+    landingData();
 });
 
-// <button class="delete_fav" data-fav-recipe=${k}>Delete</button>

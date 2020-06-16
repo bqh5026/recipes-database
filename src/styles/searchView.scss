@@ -4,7 +4,6 @@
 
 .container {
     display: grid;
-    // grid-template-columns: repeat(auto-fill, min-max(225px, 1fr));
     height: 90vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 0fr 0fr 1.5fr 0fr 1.5fr 0fr;

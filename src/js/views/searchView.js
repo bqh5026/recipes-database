@@ -29,6 +29,7 @@ const limitRecipeLabel = (label, limit = 10) => {
     return label; 
 }
 
+
 const getData = () => {
   elements.favorites.innerHTML = '';
   axios
@@ -39,12 +40,12 @@ const getData = () => {
         let k = keys[i];
         const favoriteRecipes = `
             <div class="recipes_cards">
-                <div class="recipe_card">   
+                <div class="recipe_card">  
                     <img class="recipe_card_image" src="${
                       res.data[k].image
                     }" alt="${res.data[k].label}">
                     <div class="recipe_card_content">
-                    <h2>${res.data[k].label}</h2>
+                    <h2 class="recipe-label">${res.data[k].label}</h2>
                     <p>
                       <h4>Ingredients</h4>
                       <ul>  
@@ -114,18 +115,18 @@ const renderRecipe = (recipe, idx) => {
                 <p>${Math.ceil(recipe.recipe.calories)}</p>
                 <h4>Health Labels</h4>
                 <p>${recipe.recipe.healthLabels}</p>
-                <a class="results_link" href="${
-                  recipe.recipe.url
-                }" target="_blank"><h4>Ingredients</h4></a>
+                <h4>Ingredients</h4>
                 <p>${recipe.recipe.ingredientLines}</p>
                 <h4>Source: </h4>
                 <p>${recipe.recipe.source}</p>
             </div>
             <div class="card_info">
-                <div>
-                    <a href='#' class='like fav-heart' data-recipe-id=${idx}>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                    </a>
+                <div class="heart-btn">
+                     <h2>${document.body.innerHTML.indexOf('${recipe.recipe.label}')}</h2>
+                     <p>${elements.favorites.textContent.includes(recipe.recipe.label)}</p>
+                      <a href='#' class='like fav-heart' data-recipe-id=${idx}>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                      </a>          
                 </div>
                 <div>
                     <a class="results_link" href="${
