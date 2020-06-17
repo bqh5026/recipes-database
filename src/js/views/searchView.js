@@ -98,6 +98,23 @@ const getData = () => {
     });
 };
 
+const searchFirebase = (url) => 
+{
+     firebase
+       .app()
+       .database()
+       .ref("recipes")
+       .orderByChild("url")
+       .equalTo(url)
+       .once("value", (snapshot) => {
+         if (snapshot.exists()) {
+           const userData = snapshot.val();
+           console.log("exists!", userData);
+         }
+       });
+}
+
+
 const renderRecipe = (recipe, idx) => {
   
     const markup = `
@@ -122,8 +139,7 @@ const renderRecipe = (recipe, idx) => {
             </div>
             <div class="card_info">
                 <div class="heart-btn">
-                     <h2>${document.body.innerHTML.indexOf('${recipe.recipe.label}')}</h2>
-                     <p>${elements.favorites.textContent.includes(recipe.recipe.label)}</p>
+                    ${searchFirebase(recipe.recipe.url)}
                       <a href='#' class='like fav-heart' data-recipe-id=${idx}>
                         <i class="fa fa-heart" aria-hidden="true"></i>
                       </a>          
@@ -196,4 +212,5 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 
 
 
-
+    //  <h2>${document.body.innerHTML.indexOf('${recipe.recipe.label}')}</h2>
+    //  <p>${elements.favorites.textContent.includes(recipe.recipe.label)}</p>
