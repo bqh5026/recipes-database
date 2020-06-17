@@ -98,7 +98,7 @@ const getData = () => {
     });
 };
 
-const searchFirebase = (url) => 
+const searchFirebase = (url, idx) => 
 {
      firebase
        .app()
@@ -110,6 +110,10 @@ const searchFirebase = (url) =>
          if (snapshot.exists()) {
            const userData = snapshot.val();
            console.log("exists!", userData);
+           document.querySelector(`[data-recipe-id="${idx}"]`)
+           .classList.replace('fav-heart', 'unfav-heart'); 
+         } else {
+           return false; 
          }
        });
 }
@@ -139,7 +143,7 @@ const renderRecipe = (recipe, idx) => {
             </div>
             <div class="card_info">
                 <div class="heart-btn">
-                    ${searchFirebase(recipe.recipe.url)}
+                
                       <a href='#' class='like fav-heart' data-recipe-id=${idx}>
                         <i class="fa fa-heart" aria-hidden="true"></i>
                       </a>          
@@ -156,6 +160,7 @@ const renderRecipe = (recipe, idx) => {
     </div>
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup); 
+    searchFirebase(recipe.recipe.url, idx)
     document.querySelector(`[data-recipe-id="${idx}"]`)
         .addEventListener("click", function(event) {
           event.preventDefault();
