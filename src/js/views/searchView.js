@@ -171,6 +171,7 @@ const renderRecipe = (recipe, idx) => {
                 getData();
               })
               .then($(`[data-recipe-id="${idx}"]`).toggleClass("heart"))
+              .then($(`[data-recipe-id="${idx}"]`).toggleClass("disabled-click"))
               .catch((error) => {
                 console.log(error);
               });

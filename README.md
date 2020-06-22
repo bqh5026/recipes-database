@@ -15,6 +15,7 @@ Users can search for recipes by keyword in the categories of meals, desserts, or
   - CSS grid 
   - flexbox
   - animation
+* Open graph tags
 * Firebase Database
 
 Some of chanllenges that I ran into were as follows: 
