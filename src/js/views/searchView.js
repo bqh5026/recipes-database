@@ -109,7 +109,7 @@ const searchFirebase = (url, idx) =>
        .once("value", (snapshot) => {
          if (snapshot.exists()) {
            const userData = snapshot.val();
-           console.log("exists!", userData);
+          //  console.log("exists!", userData);
            document.querySelector(`[data-recipe-id="${idx}"]`)
            .classList.replace('fav-heart', 'unfav-heart'); 
          } else {
@@ -216,7 +216,3 @@ export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 
 
 
-
-
-    //  <h2>${document.body.innerHTML.indexOf('${recipe.recipe.label}')}</h2>
-    //  <p>${elements.favorites.textContent.includes(recipe.recipe.label)}</p>
